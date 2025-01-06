@@ -3,4 +3,4 @@
 \renewcommand{\modnumber}{1}
 \renewcommand{\worknumber}{1}
 \renewcommand{\proddate}{\today}
-\renewcommand{\prodnumber}{}
+\renewcommand{\prodnumber}{\modnumber.\worknumber}
