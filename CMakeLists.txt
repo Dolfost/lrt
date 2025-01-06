@@ -8,7 +8,7 @@ include(version)
 
 project(latex_report_template
 	VERSION ${GIT_VERSION_TAG}
-	HOMEPAGE_URL https://github.com/Dolfost/latex-report-template
+	HOMEPAGE_URL https://github.com/Dolfost/lrt
 	LANGUAGES NONE
 )
 
