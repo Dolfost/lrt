@@ -1,6 +1,0 @@
-% !TeX root = ../document.tex
-\renewcommand{\worktheme}{Theme}
-\renewcommand{\modnumber}{1}
-\renewcommand{\worknumber}{1}
-\renewcommand{\proddate}{\today}
-\renewcommand{\prodnumber}{\modnumber.\worknumber}

@@ -1,14 +1,14 @@
 % !TeX root = document.tex
 \documentclass[11pt]{report}
 
-\input{../build/src/config/cmakeDefines}
+\input{build/cmake}
 
 \usepackage{polyglossia}
 \setmainfont{CMU Serif}
 \setsansfont{CMU Sans Serif}
 % \setmonofont{CMU Typewriter Text}
 \setmonofont{JuliaMono-Regular.ttf}[
-	Path = \resourcesDirectory/fonts/JuliaMono/,
+	Path = resources/fonts/JuliaMono/,
 	BoldFont = JuliaMono-Bold.ttf,
 	ItalicFont = JuliaMono-LightItalic.ttf,
 	BoldItalicFont = JuliaMono-BoldItalic.ttf ]
@@ -62,21 +62,22 @@
 \usepackage{amsfonts}
 % \usepackage{amssymb}
 \usepackage{esvect}
-\usepackage{templates/packages/math-setup}
+\input{preamble/math-setup}
 
 \usepackage{enumitem}
-\usepackage{templates/packages/enum-setup}
+\input{preamble/enum-setup}
 
 \usepackage{caption}
 \usepackage{titlesec}
 \usepackage{fancyhdr}
 \usepackage{extramarks}
-\usepackage{templates/packages/visuals}
+\input{preamble/visuals}
 
 \usepackage{etoolbox}
 
-\usepackage[outputdir=\binaryDirectory/aux, newfloat=true]{minted}
-\usepackage{templates/packages/minted-setup}
+\usepackage[outputdir=build/aux, newfloat=true]{minted}
+
+\input{preamble/minted-setup}
 
 \usepackage[autostyle]{csquotes}
 
@@ -92,21 +93,20 @@
 \NewDocumentCommand{\mainindex}{m}{{\bfseries #1}}
 \makeindex[options=-s iso]
 
-
 \usepackage{hyperref}
 \usepackage{cleveref}
-\usepackage{templates/packages/cleveref-setup}
+\input{preamble/cleveref-setup}
 \usepackage{nameref}
-\usepackage{templates/packages/hyperref-setup}
+\input{preamble/hyperref-setup}
 
 \usepackage{xr}
 \usepackage{subfiles}
 \externaldocument[M-]{\subfix{document}}
 
 \setcounter{tocdepth}{5}
-\setcounter{secnumdepth}{3} % Depth for the paragraph numbering
+\setcounter{secnumdepth}{3}
 
-\usepackage[iftox]{templates/packages/misc}
+\input{preamble/misc}
 
 
 %%%%%                                                        %%%%%

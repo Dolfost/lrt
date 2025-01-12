@@ -1,0 +1,33 @@
+\mathtoolsset{showonlyrefs=false}
+\numberwithin{equation}{chapter}
+
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
+\declaretheoremstyle[
+	notefont=\normalfont\itshape, notebraces={}{},
+	headfont=\bfseries\sffamily,
+	bodyfont=\normalfont,
+	headformat=\NAME\ \NUMBER\ \NOTE,
+	headpunct=\sffamily.\\,
+	spaceabove=2mm, spacebelow=2mm,
+	postheadspace=0mm, headindent=3mm,
+]{thmstyle}
+\declaretheorem[style=thmstyle, numberwithin=section, name=Теорема]{thm}
+\declaretheorem[style=thmstyle, numberwithin=section, name=Означення]{dfn}
+
+\NewDocumentCommand{\ud}{}{%
+\,\symrm{d}%
+}
+
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\med}{MED}
+\DeclareMathOperator{\mad}{MAD}
+\DeclareMathOperator{\cov}{cov}
+
+\DeclareMathOperator{\ra}{\rightarrow}
+\DeclareMathOperator{\la}{\leftarrow}
+\DeclareMathOperator{\tac}{\textasciicircum}

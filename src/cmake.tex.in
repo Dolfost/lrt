@@ -1,0 +1,10 @@
+\newcommand{\lrtbuild}{@CMAKE_CURRENT_BINARY_DIR@}
+\newcommand{\lrtresources}{@LRT_RESOURCES_DIR@}
+\newcommand{\lrtdocument}{@LRT_DOCUMENT@}
+
+\newcommand{\lrtversion}{@PROJECT_VERSION@}
+\newcommand{\lrtversionmajor}{@PROJECT_VERSION_MAJOR@}
+\newcommand{\lrtversionminor}{@PROJECT_VERSION_MINOR@}
+\newcommand{\lrtversionpatch}{@PROJECT_VERSION_PATCH@}
+\newcommand{\lrtversiontweak}{@PROJECT_VERSION_TWEAK@}
+\newcommand{\lrthomepage}{@PROJECT_HOMEPAGE_URL@}

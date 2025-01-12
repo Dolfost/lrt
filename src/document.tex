@@ -2,21 +2,22 @@
 % !TeX program = lualatex
 
 \input{preamble}
-\addbibresource{\configDirectory/bibliography.bib}
-\addbibresource{\contentsDirectory/bibliography.bib}
-
-\usepackage[iftox]{packages/misc}
+\addbibresource{bibliography.bib}
 
 \begin{document}
 
 \input{defines}
-\input{\contentsDirectory/redefines}
 
-\input{\configDirectory/matter/title}
-\input{\configDirectory/matter/frontmatter}
+\input{matter/title}
+\input{matter/frontmatter}
 
-\input{\configDirectory/chapters}
+\subfile{chapters/chapter1/chapter1.tex}
+\subfile{chapters/chapter2/chapter2.tex}
+\subfile{chapters/chapter3/chapter3.tex}
+\subfile{chapters/chapter4/chapter4.tex}
+\subfile{chapters/chapter5/chapter5.tex}
 
-\input{\configDirectory/matter/backmatter}
+
+\input{matter/backmatter}
 
 \end{document}

@@ -2,4 +2,4 @@
 .DS_Store
 
 # Generated files
-build/
+build

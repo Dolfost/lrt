@@ -1,3 +1,0 @@
-[submodule "cmake/cmake-scripts"]
-	path = cmake/cmake-scripts
-	url = https://github.com/Dolfost/cmake-scripts.git
