@@ -1,28 +1,27 @@
 % !TeX root = document.tex
-\documentclass[11pt]{report}
+\documentclass[12pt]{report}
 
 \input{build/cmake}
 
 \usepackage{polyglossia}
 \setmainfont{CMU Serif}
 \setsansfont{CMU Sans Serif}
-% \setmonofont{CMU Typewriter Text}
 \setmonofont{JuliaMono-Regular.ttf}[
 	Path = resources/fonts/JuliaMono/,
 	BoldFont = JuliaMono-Bold.ttf,
 	ItalicFont = JuliaMono-LightItalic.ttf,
 	BoldItalicFont = JuliaMono-BoldItalic.ttf ]
-\usepackage{anyfontsize}
 \setmainlanguage{ukrainian}
 \setotherlanguages{english, russian}
 
 \usepackage{geometry}
-\geometry{%
+\geometry{
 	paper=a4paper,
-	inner=1cm, outer=1cm, top=2cm, bottom=2cm, 
-	bindingoffset=0cm, % use 1.5cm fo DSTU
-	headheight=7mm,
+	inner=10mm, outer=10mm, top=20mm, bottom=20mm, 
+	bindingoffset=0mm,
+	headheight=6mm,
 	includehead=false, includefoot=false, portrait,
+	% twoside
 }
 
 \usepackage{graphicx}
@@ -30,9 +29,8 @@
 \usepackage{subcaption}
 \usepackage{float}
 \usepackage{wrapfig}
-\usepackage[section]{placeins}
 
-\usepackage[dvipsnames]{xcolor}
+\usepackage[svgnames]{xcolor}
 \usepackage{blindtext}
 \usepackage[useregional]{datetime2}
 \usepackage{syntonly}
@@ -40,9 +38,6 @@
 \usepackage{array}
 \renewcommand{\arraystretch}{1.5}
 \usepackage{booktabs}
-\usepackage{diagbox}
-\usepackage{colortbl}
-\usepackage{longtable}
 \usepackage{nicematrix}
 \usepackage{multirow}
 \usepackage[originalparameters]{ragged2e}
@@ -52,67 +47,105 @@
 \usepackage{amsmath}
 \usepackage{cancel}
 \usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage[
-	math-style=ISO,
-	warnings-off={mathtools-colon, mathtools-overbracket}
-]{unicode-math}
-\usepackage{amsthm}
-\usepackage{thmtools}
 \usepackage{amsfonts}
-% \usepackage{amssymb}
-\usepackage{esvect}
-\input{preamble/math-setup}
+\usepackage[e]{esvect}
+\numberwithin{equation}{chapter}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\med}{MED}
+\DeclareMathOperator{\mad}{MAD}
+\DeclareMathOperator{\cov}{cov}
 
 \usepackage{enumitem}
-\input{preamble/enum-setup}
+\setlist{noitemsep, itemsep=1pt, topsep=1pt, labelsep=2pt}
 
 \usepackage{caption}
+\captionsetup{%
+	skip=-2mm, 
+}
+
 \usepackage{titlesec}
-\usepackage{fancyhdr}
+\titleformat{\chapter}[display] % default chpater definition
+{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt} % 0pt 50pt 40pt
 \usepackage{extramarks}
-\input{preamble/visuals}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[R]{\nouppercase{\firstleftmark}} 
+\fancyfoot[C]{\ttfamily\thepage{}}
+\fancyfoot[R]{\ttfamily\shortfaculty{}}
+\fancyfoot[L]{\ttfamily\shortdepartment{}~\shortuniversity{}}
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot[C]{\ttfamily\thepage{}}%
+	\fancyfoot[R]{\ttfamily\shortfaculty{}}%
+	\fancyfoot[L]{\ttfamily\shortdepartment{}~\shortuniversity{}}%
+	\renewcommand{\headrulewidth}{0pt}%
+}
 
-\usepackage{etoolbox}
-
-\usepackage[outputdir=build/aux, newfloat=true]{minted}
-
-\input{preamble/minted-setup}
+\usepackage[outputdir=build/aux]{minted}
+\usemintedstyle{gruvbox-light}
+\setminted{%
+	linenos=true,
+	autogobble,
+	breaklines,
+	tabsize=2,
+	bgcolor=GhostWhite,
+	fontsize=\scriptsize,
+	curlyquotes=true,
+	mathescape,
+}
+\setmintedinline{%
+	bgcolor=White,
+	mathescape,
+}
+\newmintinline[cinl]{c}{}
+\newmintinline[cppinl]{cpp}{}
+\newmintinline[pyinl]{py}{}
+\newmintinline[csinl]{cs}{}
+\newmintinline[luainl]{lua}{}
+\newmintinline[sqlinl]{sql}{}
+\newmintinline[textinl]{text}{}
+\newenvironment{longlisting}{\captionsetup{type=listing}}{}
 
 \usepackage[autostyle]{csquotes}
-
 \usepackage[nottoc]{tocbibind}
 \usepackage[sorting=none]{biblatex}
 
 \usepackage[titletoc, toc, title]{appendix}
-\renewcommand{\appendixtocname}{Додатки} 
-\renewcommand{\appendixpagename}{Додатки}
 
 \usepackage{imakeidx}
 \indexsetup{firstpagestyle=fancy}
-\NewDocumentCommand{\mainindex}{m}{{\bfseries #1}}
 \makeindex[options=-s iso]
 
 \usepackage{hyperref}
 \usepackage{cleveref}
-\input{preamble/cleveref-setup}
-\usepackage{nameref}
-\input{preamble/hyperref-setup}
+\hypersetup{%
+	colorlinks=true,
+	linkcolor=PaleVioletRed,
+	citecolor=PaleVioletRed,
+	raiselinks=true,
+	pdfview=XYZ,
+	pdfviewarea=TrimBox,
+	linktocpage=true,
+	urlcolor=Teal,
+}
 
 \usepackage{xr}
 \usepackage{subfiles}
 \externaldocument[M-]{\subfix{document}}
 
-\setcounter{tocdepth}{5}
-\setcounter{secnumdepth}{3}
+% \counterwithin{figure}{chapter}
+% \setcounter{tocdepth}{5}
+% \setcounter{secnumdepth}{3}
 
-\input{preamble/misc}
-
-
-%%%%%                                                        %%%%%
-%                                                                %
-%%              Preamble made by Vladyslav Rehan                %%
-%%%	https://tex.stackexchange.com/users/283011/vladyslav-rehan %%%
-%%                 https://github.com/Dolfost                   %%
-%                                                                %
-%%%%%                                                        %%%%%
+\addto\captionsukrainian{%
+  \renewcommand{\listingscaption}{Лис.}%
+  \renewcommand{\listoflistingscaption}{Перелік листингів}%
+	\renewcommand{\appendixtocname}{Додатки} 
+	\renewcommand{\appendixpagename}{Додатки}
+}

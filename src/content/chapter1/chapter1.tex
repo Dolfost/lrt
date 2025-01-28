@@ -1,0 +1,58 @@
+\documentclass[../../document]{subfiles}
+\graphicspath{{images/}}
+
+% Постановка задачі
+
+\begin{document}
+
+\chapter{Постановка задачі}
+\textbf{Тема:} \worktheme.\\
+\textbf{Мета:} \workobjective.
+
+\paragraph*{Загальні вимоги до програми}
+\begin{enumerate}
+	\item Програма повинна бути незалежна від даних. Вхідний файл має
+		обиратися в діалозі з користувачем. Передбачається, що вхідні дані знаходяться
+		в текстовому файлі, обсяг даних не відомий. Потрібно забезпечити можливість
+		модифікації та збереження даних.
+	\item Слід уможливити перетворення даних (логарифмування,
+		стандартизація, зсув).
+	\item Після перетворення або вилучення аномальних значень користувач
+		повинен мати можливість повернутися до початкових даних.
+\end{enumerate}
+
+\blindtext%
+\footnote{This is a footnote}
+\blindtext
+
+\begin{figure}
+	\begin{center}
+		\fbox{\includegraphics[width=0.5\textwidth]{../../resources/images/pm.png}}
+	\end{center}
+	\caption{Faculty image}\label{fig:pm}
+\end{figure}
+
+\blindtext
+
+\begin{longlisting}
+	\begin{minted}{c++}
+		// Header file for input output functions
+		#include <iostream>
+		using namespace std;
+
+		// main() function: where the execution of
+		// C++ program begins
+		int main() {
+
+				// This statement prints "Hello World"
+				cout << "Hello World";
+
+				return 0;
+		}
+	\end{minted}
+	\caption{C++ hellow world}\label{lst:code}
+\end{longlisting}
+
+This is an \cppinl{int main()} function at business.
+
+\end{document}

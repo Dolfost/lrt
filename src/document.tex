@@ -8,14 +8,20 @@
 
 \input{defines}
 
-\input{matter/title}
-\input{matter/frontmatter}
+\input{title}
 
-\subfile{chapters/chapter1/chapter1.tex}
-\subfile{chapters/chapter2/chapter2.tex}
-\subfile{chapters/chapter3/chapter3.tex}
-\subfile{chapters/chapter4/chapter4.tex}
-\subfile{chapters/chapter5/chapter5.tex}
+\subfile{content/chapter1/chapter1.tex}
+\subfile{content/chapter2/chapter2.tex}
+\subfile{content/chapter3/chapter3.tex}
+\subfile{content/chapter4/chapter4.tex}
+\subfile{content/chapter5/chapter5.tex}
 
-\input{matter/backmatter}
+\subfile{content/appendencies/appendencies.tex}
+
+\listoffigures
+% \listoflistings
+% \listoftables
+% \printindex
+\printbibliography
+
 \end{document}
