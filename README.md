@@ -5,7 +5,7 @@ that it isn't integrated into editor, just pure `CMake`, `latexmk` and
 
 ### Typical workfrow
 Clone repository to your machine and configure project from `src/defines.tex`.
-Then and go fill up `src/chapters`.
+Then and go fill up `src/content` (or `content`, using soft link in repository root).
 
 ## CMake targets
 Target | Explanation
@@ -23,8 +23,6 @@ subdirectory.
 File | Meaning
 ----|----|
 `src/defines.tex` | project-specific definitions
-`src/matter/`     | title, frontmatter and backmatter definitions
 `src/resources/`  | project-wise fonts and images
-`src/preamble/`   | package-specific configuration
 `src/bibliography.bib` | project-wise bibliography
 `src/cmake.tex.in`     | `CMake` variables definitions as tex
