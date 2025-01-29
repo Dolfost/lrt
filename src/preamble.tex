@@ -68,9 +68,9 @@
 }
 
 \usepackage{titlesec}
-\titleformat{\chapter}[display] % default chpater definition
-{\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{0pt}{40pt} % 0pt 50pt 40pt
+% \titleformat{\chapter}[display] % default chpater definition
+% {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% \titlespacing*{\chapter}{0pt}{0pt}{40pt} % 0pt 50pt 40pt
 \usepackage{extramarks}
 \usepackage{fancyhdr}
 \fancyhf{}
@@ -139,7 +139,7 @@
 \usepackage{subfiles}
 \externaldocument[M-]{\subfix{document}}
 
-% \counterwithin{figure}{chapter}
+\counterwithin{listing}{chapter}
 % \setcounter{tocdepth}{5}
 % \setcounter{secnumdepth}{3}
 
