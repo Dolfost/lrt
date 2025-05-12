@@ -10,7 +10,8 @@
 	Path = resources/fonts/JuliaMono/,
 	BoldFont = JuliaMono-Bold.ttf,
 	ItalicFont = JuliaMono-LightItalic.ttf,
-	BoldItalicFont = JuliaMono-BoldItalic.ttf ]
+	BoldItalicFont = JuliaMono-BoldItalic.ttf,
+	Scale = 0.84 ]
 \setmainlanguage{ukrainian}
 \setotherlanguages{english, russian}
 
@@ -33,7 +34,6 @@
 \usepackage[svgnames]{xcolor}
 \usepackage{blindtext}
 \usepackage[useregional]{datetime2}
-\usepackage{syntonly}
 
 \usepackage{array}
 \renewcommand{\arraystretch}{1.5}
@@ -88,7 +88,7 @@
 	\renewcommand{\headrulewidth}{0pt}%
 }
 
-\usepackage[outputdir=build/aux]{minted}
+\usepackage{minted}
 \usemintedstyle{gruvbox-light}
 \setminted{%
 	linenos=true,
@@ -124,7 +124,6 @@
 \makeindex[options=-s iso]
 
 \usepackage{hyperref}
-\usepackage{cleveref}
 \hypersetup{%
 	colorlinks=true,
 	linkcolor=PaleVioletRed,
