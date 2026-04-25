@@ -1,27 +1,291 @@
 % !TeX root = document.tex
 % !TeX program = lualatex
 
-\input{preamble}
+%   ===   PREAMBLE   ===   
+\documentclass[12pt]{report}
+
+\usepackage{polyglossia}
+\setmainfont{CMU Serif}
+\setsansfont{CMU Sans Serif}
+\setmonofont{JuliaMono-Regular.ttf}[
+	Path = resources/fonts/JuliaMono/,
+	BoldFont = JuliaMono-Bold.ttf,
+	ItalicFont = JuliaMono-LightItalic.ttf,
+	BoldItalicFont = JuliaMono-BoldItalic.ttf,
+	Scale = 0.75 ]
+\setmainlanguage{ukrainian}
+\setotherlanguages{english, russian}
+
+\usepackage{geometry}
+\geometry{
+	paper=a4paper,
+	inner=10mm, outer=10mm, top=20mm, bottom=20mm, 
+	bindingoffset=0mm,
+	headheight=6mm,
+	includehead=false, includefoot=false, portrait,
+	% twoside
+}
+
+\usepackage{graphicx}
+\graphicspath{{images/}}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{wrapfig}
+\usepackage{placeins}
+\usepackage[export]{adjustbox}
+
+\usepackage[svgnames]{xcolor}
+\usepackage{blindtext}
+\usepackage[useregional]{datetime2}
+
+\usepackage{array}
+\renewcommand{\arraystretch}{1.5}
+\usepackage{booktabs}
+\usepackage{nicematrix}
+\usepackage{multirow}
+\usepackage[originalparameters]{ragged2e}
+\usepackage{changepage}
+\usepackage{verbatim}
+
+\usepackage{amsmath}
+\allowdisplaybreaks[3]
+\usepackage{cancel}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage[e]{esvect}
+\usepackage{siunitx}
+\numberwithin{equation}{chapter}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\med}{MED}
+\DeclareMathOperator{\mad}{MAD}
+\DeclareMathOperator{\cov}{cov}
+
+\usepackage{enumitem}
+\setlist{noitemsep, itemsep=1pt, topsep=1pt, labelsep=2pt}
+
+\usepackage{caption}
+\captionsetup{%
+	skip=-2mm, 
+}
+
+\usepackage{titlesec}
+% \titleformat{\chapter}[display] % default chpater definition
+% {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+% \titlespacing*{\chapter}{0pt}{0pt}{40pt} % 0pt 50pt 40pt
+\usepackage{extramarks}
+\usepackage{fancyhdr}
+\fancyhf{}
+\fancyhead[R]{\nouppercase{\firstleftmark}} 
+\fancyfoot[C]{\ttfamily\thepage{}}
+\fancyfoot[R]{\ttfamily\shortfaculty{}}
+\fancyfoot[L]{\ttfamily\shortdepartment{}~\shortuniversity{}}
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+	\fancyhf{}%
+	\fancyfoot[C]{\ttfamily\thepage{}}%
+	\fancyfoot[R]{\ttfamily\shortfaculty{}}%
+	\fancyfoot[L]{\ttfamily\shortdepartment{}~\shortuniversity{}}%
+	\renewcommand{\headrulewidth}{0pt}%
+}
+
+\usepackage{minted}
+\usemintedstyle{gruvbox-light}
+\setminted{%
+	linenos=true,
+	autogobble,
+	breaklines,
+	tabsize=2,
+	bgcolor=GhostWhite,
+	fontsize=\normalsize,
+	curlyquotes=true,
+	mathescape,
+}
+\setmintedinline{%
+	bgcolor=White,
+	mathescape,
+	fontsize=\normalsize,
+}
+\newmintinline[cinl]{c}{}
+\newmintinline[cppinl]{cpp}{}
+\newmintinline[pyinl]{py}{}
+\newmintinline[csinl]{cs}{}
+\newmintinline[luainl]{lua}{}
+\newmintinline[sqlinl]{sql}{}
+\newmintinline[textinl]{text}{}
+\newenvironment{longlisting}{\captionsetup{type=listing,skip=0em}}{\vspace{1em}}
+
+\usepackage[autostyle]{csquotes}
+\usepackage[nottoc]{tocbibind}
+\usepackage[sorting=none]{biblatex}
+
+\usepackage[titletoc, toc, title]{appendix}
+
+\usepackage{imakeidx}
+\indexsetup{firstpagestyle=fancy}
+\makeindex[options=-s iso]
+
+\usepackage{hyperref}
+\hypersetup{%
+	colorlinks=true,
+	linkcolor=PaleVioletRed,
+	citecolor=PaleVioletRed,
+	raiselinks=true,
+	pdfview=XYZ,
+	pdfviewarea=TrimBox,
+	linktocpage=true,
+	urlcolor=Teal,
+}
+
+\usepackage{xr}
+\usepackage{subfiles}
+\externaldocument[M-]{\subfix{document}}
+
+\counterwithin{listing}{chapter}
+% \setcounter{tocdepth}{5}
+% \setcounter{secnumdepth}{3}
+
+\addto\captionsukrainian{%
+  \renewcommand{\listingscaption}{Лис.}%
+  \renewcommand{\listoflistingscaption}{Перелік листингів}%
+	\renewcommand{\appendixtocname}{Додатки} 
+	\renewcommand{\appendixpagename}{Додатки}
+}
 \addbibresource{bibliography.bib}
+%   ===   !PREAMBLE   ===   
+
 
 \begin{document}
 
-\input{defines}
+%  TODO: fill these
+%   ===   DEFINES   ===   
+\newcommand{\worktheme}{
+	Theme%
+}
+\newcommand{\workobjective}{
+	Objective%
+}
+\newcommand{\modnumber}{1}
+\newcommand{\worknumber}{1}
+\newcommand{\studentname}{Владислав~Володимирович~Регaн}
+\newcommand{\studentnumber}{4}
+\newcommand{\jobtitle}   {Toutorial}
+\newcommand{\teachername}{Quentin Tarantino}
+\newcommand{\subjectname}{Money making}
 
-\input{title}
+\newcommand{\prodnumber}{\modnumber.\worknumber}
+\newcommand{\proddate}{\today}
 
-\subfile{content/chapter1/chapter1.tex}
-\subfile{content/chapter2/chapter2.tex}
-\subfile{content/chapter3/chapter3.tex}
-\subfile{content/chapter4/chapter4.tex}
-\subfile{content/chapter5/chapter5.tex}
+\newcommand{\groupnumber}{Б-113-22-1-ПМ}
+\newcommand{\course}{4}
 
-\subfile{content/appendencies/appendencies.tex}
+\newcommand{\university}{Київський~авіаційний~інститут}
+\newcommand{\shortuniversity}{КАІ}
+\newcommand{\faculty}{Факультет~комп'ютерних~наук~та~технологій}
+\newcommand{\shortfaculty}{ФКНТ}
+\newcommand{\department}{Кафедра~прикладної~математики}
+\newcommand{\os}{Бакалавр}
+\newcommand{\speciality}{113~\enquote{Прикладна~математика}}
+\newcommand{\oop}{Прикладне~програмне~забезпечення}
+\newcommand{\shortdepartment}{ПМ}
+
+\newcommand{\BeforeChpater}{
+}
+\newcommand{\AfterChapter}{
+	\FloatBarrier%
+}
+%   ===   !DEFINES   ===   
+
+%   ===   TILE   ===   
+\newlength{\rightshift}
+\setlength{\rightshift}{35pt}
+
+\thispagestyle{empty}
+
+{\sffamily
+\begin{Center}
+	{\LARGE{}МІНІСТЕРСТВО НАУКИ ТА ОСВІТИ УКРАЇНИ\\
+	\university{}\\}
+	{\Large\faculty{}\\\department{}}
+\end{Center}
+
+\vspace*{\fill}
+
+\begin{Center}
+	\includegraphics[width=.4\textwidth]{resources/images/pm}\\
+\end{Center}
+
+\vspace*{\fill}
+
+\begin{Center}
+	\Large
+	\enquote{\subjectname}\\
+	\jobtitle{} \prodnumber{}\\
+	\proddate{}\\
+\end{Center}
+
+\vspace*{\fill}
+
+\begin{adjustwidth}{\textwidth/2+\rightshift}{0pt}
+	\begin{FlushLeft}
+		\large
+		Виконав:\\
+		студент №\studentnumber{} групи \groupnumber{}\\
+		\studentname{}\\
+	\end{FlushLeft}
+\end{adjustwidth}
+
+\vspace{10pt}
+
+\begin{adjustwidth}{\textwidth/2+\rightshift}{0pt}
+	\begin{FlushLeft}
+		\large
+		Прийняв:\\
+		\teachername{}
+	\end{FlushLeft}
+\end{adjustwidth}
+
+\vspace*{\fill}
+
+\begin{Center}
+	Київ \the\year{}
+\end{Center}
+}
+
+\pagebreak
+\hypertarget{tocLink}{{\sffamily\tableofcontents}}
+\pagebreak
+%   ===   !TILE   ===   
+
+\graphicspath{{images/}}
+
+%   ===   CONTENT   ===   
+\chapter{Постановка задачі}
+\textbf{Тема:} \worktheme.\\
+\textbf{Мета:} \workobjective.
+
+
+\chapter{Теоретична частина}
+
+\chapter{Опис програми}
+
+\chapter{Реалізація}
+
+\chapter{Висновки}
+
+%   ===   !CONTENT   ===   
+
+%   ===   APPENDENCIES   ===   
+
+%   ===   !APPENDENCIES   ===   
 
 \listoffigures
 % \listoflistings
 % \listoftables
 % \printindex
-\printbibliography
+% \printbibliography
 
 \end{document}

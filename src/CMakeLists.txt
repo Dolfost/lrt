@@ -15,11 +15,6 @@ configure_file("${CMAKE_CURRENT_SOURCE_DIR}/latexmkrc.in"
 	@ONLY
 )
 
-configure_file("${CMAKE_CURRENT_SOURCE_DIR}/cmake.tex.in"
-	"cmake.tex"
-	@ONLY
-)
-
 set(LATEXMK_OPTIONS 
 	"-verbose"
 )

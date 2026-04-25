@@ -22,7 +22,4 @@ subdirectory.
 ## Files
 File | Meaning
 ----|----|
-`src/defines.tex` | project-specific definitions
 `src/resources/`  | project-wise fonts and images
-`src/bibliography.bib` | project-wise bibliography
-`src/cmake.tex.in`     | `CMake` variables definitions as tex
